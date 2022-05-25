@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos";
+
+// setup service
+// sau khi viết xong cần chọn properties (nếu thấy trống thì bên tab solution click vô file này)
+// chọn build action : Protobuf compiler 
+// chọn gRPC stub Classer : Server Only
+// trên thanh home chọn build : buid gRPC service (ctrl + B)
+
+
+
+// service
+service User {
+  // Hàm sử lý
+  rpc Login (UserRequest) returns (UserReply);
+}
+
+// Tham số nhận vào
+message UserRequest {
+  string userName = 1;
+  string password = 2;
+}
+
+// Tham số trả ra
+message UserReply {
+  string token = 1;
+  string userName = 2;
+  string password = 3;
+}
